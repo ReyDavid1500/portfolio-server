@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Message = require("./models/message");
 
 const app = express();
-dotenv.config();
+dotenv.config(); // Hacer configuración! 
 
 const PORT = process.env.PORT || 3000;
 
