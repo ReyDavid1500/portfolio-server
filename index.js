@@ -1,20 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv")
-const mongoose = require("mongoose");
 const { Resend } = require("resend")
 
-const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY)
 dotenv.config();
 
+const RESEND_API_KEY = process.env.RESEND_API_KEY
+
+const app = express();
+const resend = new Resend(RESEND_API_KEY)
+
 const PORT = process.env.PORT || 3000;
-
-const CONNECTION = process.env.CONNECTION;
-
-mongoose.connect(CONNECTION)
-    .then(() => console.log("Connected to DB"))
-    .catch(error => console.log("Connection Error ", error))
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
