@@ -16,7 +16,9 @@ mongoose.connect(CONNECTION)
     .then(() => console.log("Connected to DB"))
     .catch(error => console.log("Connection Error ", error))
 
-app.use(cors());
+app.use(cors({
+    origin: "https://reydavid1500.github.io"
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
