@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const { Resend } = require("resend")
 
 const app = express();
-const resend = new Resend("re_YoP6VaTh_MvSLWE5xbnMJxh53isWMSFzq")
+const resend = new Resend(process.env.RESEND_API_KEY)
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
@@ -16,10 +16,7 @@ mongoose.connect(CONNECTION)
     .then(() => console.log("Connected to DB"))
     .catch(error => console.log("Connection Error ", error))
 
-app.use(cors({
-    origin: "https://reydavid1500.github.io",
-    preflightContinue: true,
-}));
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
