@@ -17,7 +17,8 @@ mongoose.connect(CONNECTION)
     .catch(error => console.log("Connection Error ", error))
 
 app.use(cors({
-    origin: "https://reydavid1500.github.io"
+    origin: "https://reydavid1500.github.io",
+    preflightContinue: true,
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
