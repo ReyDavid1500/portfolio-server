@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Portfolio dependencies",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index",
-    "build": "vercel-build"
+    "start": "node index.js",
+    "build": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,11 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.1",
+    "mysql2": "^3.9.7",
     "nodemailer": "^6.9.7",
-    "nodemon": "^3.0.1",
     "resend": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

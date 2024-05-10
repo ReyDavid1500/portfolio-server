@@ -1,7 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv")
-const { Resend } = require("resend")
+import express from "express"
+import cors from "cors"
+import dotenv from "dotenv"
+import { Resend } from "resend";
+import { getCertificates } from "./database.js";
 
 dotenv.config();
 
@@ -15,6 +16,11 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.get('/certificates', async (req, res) => {
+    const certificates = await getCertificates()
+    res.send(certificates);
+})
 
 app.post('/contact', (req, res) => {
     const { from, to, subject, html } = req.body;
