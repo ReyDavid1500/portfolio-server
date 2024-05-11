@@ -42,4 +42,4 @@ app.post('/contact', (req, res) => {
 });
 
 
-app.listen(PORT, () => console.log("Server OK in port " + PORT))
+app.listen(PORT, "0.0.0.0", () => console.log("Server OK in port " + PORT))
