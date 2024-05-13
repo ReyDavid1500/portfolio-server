@@ -11,7 +11,7 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY
 const app = express();
 const resend = new Resend(RESEND_API_KEY)
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.MYSQLPORT || 3000;
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -42,4 +42,4 @@ app.post('/contact', (req, res) => {
 });
 
 
-app.listen(PORT, "0.0.0.0", () => console.log("Server OK in port " + PORT))
+app.listen(PORT, () => console.log("Server OK in port " + PORT))
