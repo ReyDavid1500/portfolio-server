@@ -4,14 +4,14 @@ import dotenv from "dotenv"
 dotenv.config();
 
 const pool = mysql.createPool({
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DATABASE_NAME,
 }).promise();
 
 export async function getCertificates() {
-    const [rows] = await pool.query("SELECT * FROM railway");
+    const [rows] = await pool.query("SELECT * FROM certificates;");
     return rows
 }
 

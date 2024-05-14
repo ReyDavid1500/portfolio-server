@@ -17,6 +17,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send('Welcome to my APP')
+})
+
 app.get('/certificates', async (req, res) => {
     const certificates = await getCertificates()
     res.send(certificates);
