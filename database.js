@@ -11,7 +11,7 @@ const pool = mysql.createPool({
 }).promise();
 
 export async function getCertificates() {
-    const [rows] = await pool.query("SELECT * FROM certificates");
+    const [rows] = await pool.query("SELECT * FROM railway");
     return rows
 }
 
