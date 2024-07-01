@@ -12,7 +12,12 @@ const resend = new Resend(RESEND_API_KEY)
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+    origin: '*', // Allow requests from any origin. You can specify specific origins instead.
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    optionsSuccessStatus: 200 // Return 200 for preflight requests
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
