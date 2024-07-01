@@ -2,7 +2,6 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { Resend } from "resend";
-import { getCertificates } from "./database.js";
 
 dotenv.config();
 
@@ -21,10 +20,10 @@ app.get('/', (req, res) => {
     res.send('Welcome to my APP')
 })
 
-app.get('/certificates', async (req, res) => {
-    const certificates = await getCertificates()
-    res.send(certificates);
-})
+// app.get('/certificates', async (req, res) => {
+//     const certificates = await getCertificates()
+//     res.send(certificates);
+// })
 
 app.post('/contact', (req, res) => {
     const { from, to, subject, html } = req.body;
